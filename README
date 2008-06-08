@@ -1,0 +1,24 @@
+ActiveConference
+================
+
+This is a collection of ActiveResource models and utility methods that serve as the interface to the Active Conference API.
+
+
+Requirements
+============
+
+ezcryto (http://ezcrypto.rubyforge.org)
+signed_resource_client (http://rubyforge.org/projects/signedresource)
+
+
+Example
+=======
+
+c = ActiveConference::Conference.create
+c.participants.create(:phone_number => '2125551234', :is_leader => true)
+c.participants.create(:phone_number => '2125559999')
+c.start_time = Time.now.utc # always provide date and times in UTC!
+c.save
+
+
+Copyright (c) 2007 Active Conference, released under the MIT license
