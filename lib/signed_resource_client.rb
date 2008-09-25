@@ -1,3 +1,5 @@
+require 'ezcrypto'
+
 module SignedResource
 
   VERSION = '1.0'
@@ -31,8 +33,8 @@ module SignedResource
 
     private
 
-      def build_request_headers(headers)
-        { 'X-Signed-Resource' => SignedResource::VERSION }.update(super(headers))
+      def build_request_headers(*args)
+        { 'X-Signed-Resource' => SignedResource::VERSION }.update(super(*args))
       end
 
       def request(method, path, *arguments)
